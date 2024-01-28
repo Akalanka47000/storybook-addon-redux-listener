@@ -67,7 +67,7 @@ var ReduxListenerPanel = function (_React$PureComponent) {
       channel.on('addon/redux-listener/actionTriggered', this.onActionTriggered);
 
       // Clear the current action on every story change.
-      this.stopListeningOnStory = api.onStory(function () {
+      this.stopListeningOnStory = api.on(function () {
         _this2.setState({ actions: [] });
       });
     }
@@ -160,7 +160,7 @@ var ReduxListenerPanel = function (_React$PureComponent) {
 
 ReduxListenerPanel.propTypes = {
   api: _propTypes2.default.shape({
-    onStory: _propTypes2.default.func.isRequired
+    on: _propTypes2.default.func.isRequired
   }).isRequired,
   channel: _propTypes2.default.shape({
     on: _propTypes2.default.func.isRequired,

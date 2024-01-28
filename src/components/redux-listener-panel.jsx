@@ -16,7 +16,7 @@ const styles = {
 class ReduxListenerPanel extends React.PureComponent {
   static propTypes = {
     api: PropTypes.shape({
-      onStory: PropTypes.func.isRequired,
+      on: PropTypes.func.isRequired,
     }).isRequired,
     channel: PropTypes.shape({
       on: PropTypes.func.isRequired,
@@ -39,7 +39,7 @@ class ReduxListenerPanel extends React.PureComponent {
     );
 
     // Clear the current action on every story change.
-    this.stopListeningOnStory = api.onStory(() => {
+    this.stopListeningOnStory = api.on(() => {
       this.setState({ actions: [] });
     });
   }
